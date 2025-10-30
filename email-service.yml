@@ -32,5 +32,18 @@ spring:
           starttls:
             enable: true
         timeout: 5000
+
+management:
+  metrics:
+    tags:
+      application: email-service
+  endpoints:
+    web:
+      exposure:
+        include: health, metrics, prometheus
+  endpoint:
+    health:
+      show-details: always
+
 server:
   port: 8095

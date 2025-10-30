@@ -27,5 +27,17 @@ springdoc:
     operationsSorter: method
     tagsSorter: alpha
 
+management:
+  metrics:
+    tags:
+      application: price-service
+  endpoints:
+    web:
+      exposure:
+        include: health, metrics, prometheus
+  endpoint:
+    health:
+      show-details: always
+
 server:
   port: 8083
