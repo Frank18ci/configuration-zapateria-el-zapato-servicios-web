@@ -1,0 +1,36 @@
+spring:
+  cloud:
+    zookeeper:
+      connect-string: localhost:2181
+    discovery:
+      enabled: true
+  kafka:
+    bootstrap-servers: localhost:9092
+    consumer:
+      group-id: notification-group
+      auto-offset-reset: earliest
+      key-deserializer: org.apache.kafka.common.serialization.StringDeserializer
+      value-deserializer: org.springframework.kafka.support.serializer.ErrorHandlingDeserializer
+      properties:
+        spring.json.trusted.packages: "*"
+        spring.json.value.default.type: com.cibertec.emailservice.event.consumer.dto.ProductVariantResponseK
+        spring.deserializer.value.delegate.class: org.springframework.kafka.support.serializer.JsonDeserializer
+    producer:
+      key-serializer: org.apache.kafka.common.serialization.StringSerializer
+      value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
+      properties:
+        spring.json.add.type.headers: false
+  mail:
+    host: ${EMAIL_HOST:587}
+    port: ${EMAIL_PORT:smtp.gmail.com}
+    username: ${EMAIL_USERNAME:fcarpio113@gmail.com}
+    password: ${EMAIL_PASSWORD:qfqdqzqwbanlligl}
+    properties:
+      mail:
+        smtp:
+          auth: true
+          starttls:
+            enable: true
+        timeout: 5000
+server:
+  port: 8095
