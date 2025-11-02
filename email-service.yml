@@ -20,18 +20,18 @@ spring:
       value-serializer: org.springframework.kafka.support.serializer.JsonSerializer
       properties:
         spring.json.add.type.headers: false
-   mail:
-    host: ${EMAIL_HOST:smtp.gmail.com}
-    port: ${EMAIL_PORT:587}
-    username: ${EMAIL_USERNAME:fcarpio113@gmail.com}
-    password: ${EMAIL_PASSWORD:qfqdqzqwbanlligl}
-    properties:
-      mail:
-        smtp:
-          auth: true
-          starttls:
-            enable: true
-        timeout: 5000
+ mail:
+  host: ${EMAIL_HOST:smtp.gmail.com}
+  port: ${EMAIL_PORT:587}
+  username: ${EMAIL_USERNAME:fcarpio113@gmail.com}
+  password: ${EMAIL_PASSWORD:qfqdqzqwbanlligl}
+  properties:
+    mail:
+      smtp:
+        auth: true
+        starttls:
+          enable: true
+      timeout: 5000
 
 management:
   metrics:
